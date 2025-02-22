@@ -5,14 +5,14 @@ import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableO
 
 export const LoginScreen = () => {
     return (
-        <ImageBackground source={require('../img/fondo13.jpg')} style={styles.background}>
+        <ImageBackground source={require('../screen/img/fondo13.jpg')} style={styles.background}>
 
 
             <View style={styles.container}>
-                <Image source={require('../img/logoSummer.png')} style={styles.logoSumer} ></Image>
+                <Image source={require('../screen/img/logoSummer.png')} style={styles.logoSumer} ></Image>
 
 
-                <Text style={styles.inicioS}>Inicia sesión en tu cuenta</Text>
+                <Text style={styles.inicioS}>Inicio de sesión</Text>
                 <Text>Email</Text>
                 <TextInput style={styles.datos} />
                 <Text>Contraseña</Text>
