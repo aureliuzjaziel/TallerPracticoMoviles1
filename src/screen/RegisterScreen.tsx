@@ -6,7 +6,7 @@ import { styles } from '../theme/Estiloregister';
 export const RegisterScreen = () => {
     const navigation= useNavigation();
     return (
-        <ImageBackground source={require('../img/logoSummer.png')} style={styles.background}>
+        <ImageBackground source={require('../img/fondo13.png')} style={styles.background}>
 
             <View style={styles.container}>
                 <Image source={require('../img/logoSummer.png')} style={styles.logoSumer} />
