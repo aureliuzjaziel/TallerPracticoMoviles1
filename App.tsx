@@ -1,18 +1,15 @@
+import 'react-native-gesture-handler';
 import React from 'react'
 
-import { LoginScreen } from './src/screen/LoginScreen'
-import { SafeAreaView } from 'react-native-safe-area-context'
-import { RegisterScreen } from './src/screen/RegisterScreen'
-
-
+import { View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { StackNavigator } from './src/navigator/StackNavigator';
 
 const App = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <LoginScreen />
-      {/* <RegisterScreen /> */}
-    </SafeAreaView>
+    <NavigationContainer>
+    <StackNavigator/>
+    </NavigationContainer>
   )
 }
-
-export default App
+export default App;
