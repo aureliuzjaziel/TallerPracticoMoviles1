@@ -14,6 +14,7 @@ export const LoginScreen = () => {
 
                 <Text style={styles.inicioS}>Inicia sesión en tu cuenta</Text>
                 <Text>Email</Text>
+                
                 <TextInput style={styles.datos} />
                 <Text>Contraseña</Text>
                 <TextInput style={styles.datos} />
@@ -50,6 +51,7 @@ const styles = StyleSheet.create({
         width: 300,
         borderRadius: 30,
         //opacity: 1,
+        
 
         flex: 1,
         backgroundColor: '#ACE2E1',
