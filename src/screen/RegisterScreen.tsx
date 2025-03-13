@@ -3,12 +3,12 @@ import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableO
 
 export const RegisterScreen = () => {
     return (
-        <ImageBackground source={require('../img/fondo13.jpg')} style={styles.background}>
+        <ImageBackground source={require('../screen/img/fondo13.jpg')} style={styles.background}>
 
             <View style={styles.container}>
-                <Image source={require('../img/logoSummer.png')} style={styles.logoSumer} />
+                <Image source={require('../screen/img/logoSummer.png')} style={styles.logoSumer} />
 
-                <Text style={styles.registroS}>Crea una cuenta nueva</Text>
+                <Text style={styles.registros}>Crea una cuenta nueva</Text>
                 <Text>Nombre</Text>
                 <TextInput style={styles.datos} />
                 <Text>Apellido</Text>
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         marginBottom: 10,
         textAlign: 'center',
     },
-    registroS: {
+    registros: {
         fontWeight: 'bold',
         fontSize: 18,
         marginBottom: 20,
