@@ -1,7 +1,8 @@
-import { CommonActions, useNavigation } from '@react-navigation/native';
+import { CommonActions, useNavigation, NavigationContainer } from '@react-navigation/native';
 import React from 'react'
 import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 import { styles } from '../theme/EstilosLogin';
+import { ImputComponent } from '../components/imputComponentes'
 
 
 
@@ -19,9 +20,9 @@ export const LoginScreen = () => {
                 <Text style={styles.inicioS}>Inicio de sesión</Text>
                 <Text>Email</Text>
                 
-                <TextInput style={styles.datos} />
+                <ImputComponent contraseña='correo' teclado='email-address'/>
                 <Text>Contraseña</Text>
-                <TextInput style={styles.datos} />
+                <ImputComponent contraseña='contraseña' teclado='default'/>
                 <TouchableOpacity>
                     <Text style={styles.contraseña}>¿Olvidaste tu contraseña?</Text>
                 </TouchableOpacity>
