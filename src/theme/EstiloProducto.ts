@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 10,
         borderBottomColor: '#38d692',
         alignItems: 'center',
-        backgroundColor:'#e7f9f1',
+        //backgroundColor:'#e7f9f1',
         
       },
       
@@ -40,4 +40,9 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         borderRadius: 100,
       },
+      background: {
+        flex: 1,
+        resizeMode: 'cover',
+        opacity: 0.9,
+    },
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FlatList, View, Text, Image, StyleSheet, ScrollView } from 'react-native';
+import { FlatList, View, Text, Image, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import { styles } from '../theme/EstiloProducto';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { CommonActions, useNavigation } from '@react-navigation/native';
@@ -16,8 +16,9 @@ export const Producto = () => {
     const navigation = useNavigation();
 
     return (
-        <ScrollView>
-            {/* Lista de productos */}
+        <ImageBackground source={require('../img/fondo13.png')} style={styles.background}> 
+            <ScrollView>
+            
             <FlatList 
                 data={products}
                 keyExtractor={(item) => item.id}
@@ -38,5 +39,8 @@ export const Producto = () => {
                             <Text style={styles.volver}>Home</Text>    
             </TouchableOpacity>
         </ScrollView>
+
+        </ImageBackground>
+        
     );
 };
