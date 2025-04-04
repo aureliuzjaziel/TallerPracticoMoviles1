@@ -7,9 +7,10 @@ import { ModalProducts } from './ModalProducts';
 
 interface Props {
     product: Product;
+    
 }
 
-export const CarProducts = ({ product }: Props) => {
+export const CarProducts = ({ product}: Props) => {
 
     const [showModal, setShowModal] = useState<boolean>(false);
     return (
@@ -27,10 +28,10 @@ export const CarProducts = ({ product }: Props) => {
                         onPress={() => setShowModal(!showModal)}/>
                 </View>
             </View>
-            <ModalProducts
-            isVisible={showModal}
-            setShowModal={() => setShowModal(!showModal)}
-            product={product}/>
+            <ModalProducts isVisible={showModal}
+                setShowModal={() => setShowModal(!showModal)}
+                product={product} 
+                 />
         </View>
 
     )

@@ -194,6 +194,81 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-end'
     },
+    volver: {
+        padding: 10,
+        backgroundColor: '#38d692',
+        fontSize: 30,
+        fontWeight: 'bold',
+        margin: 30,
+        textAlign: 'center',
+        borderRadius: 100,
+      },
+      containerQuantity: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonQuantity: {
+        height: 50,
+        width: 50,
+        backgroundColor: PRIMARY_COLOR,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 15
+    },
+    buttonTextQuantity: {
+        color: SECONDARY_COLOR,
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    textQuantity: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    buttonAddCar: {
+        backgroundColor: PRIMARY_COLOR,
+        alignItems: 'center',
+        paddingVertical: 10,
+        borderRadius: 5,
+        marginTop: 10
+    },
+    buttonTextAddCar: {
+        color: SECONDARY_COLOR,
+        fontWeight: 'bold'
+    },
+    headerTable: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    headerDescription: {
+        flexDirection: 'row',
+    },
+    textHeaderTable: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: "#000"
+    },
+    containerTotal:{
+        marginVertical:10,
+        alignItems:'flex-end',
+        paddingHorizontal:10
+    },
+    textTotal:{
+        fontSize: 16,
+        fontWeight:'bold'
+    },
+    headerHome: {
+        flexDirection: 'row',
+        alignItems: 'center'
+    },
+    textIconCar: {
+        backgroundColor: SECONDARY_COLOR,
+        paddingHorizontal: 5,
+        borderRadius: 20,
+        fontSize: 12,
+        fontWeight: 'bold'
+    },
 
 
 

@@ -82,7 +82,7 @@ export const RegisterScreen = ({ users, addUser }: Props) => {
   });
   const navigation = useNavigation();
   return (
-    <ImageBackground source={require('../img/fondo13.png')} style={styles.background}>
+    
 
       <View style={styles.container}>
         <Image source={require('../img/logoSummer.png')} style={styles.logoSumer} />
@@ -128,7 +128,7 @@ export const RegisterScreen = ({ users, addUser }: Props) => {
         </TouchableOpacity>
       </View> 
 
-    </ImageBackground>
+    
   );
 };
 

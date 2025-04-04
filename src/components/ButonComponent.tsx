@@ -14,7 +14,7 @@ export const ButonComponent = ({title, handleLogin}:Props) => {
     return (
         <View>
             <TouchableOpacity   onPress={handleLogin}>
-                <Text style={styles.ingresar}>INGRESAR</Text>
+                <Text style={styles.ingresar}>{title}</Text>
             </TouchableOpacity>
         </View>
     )
