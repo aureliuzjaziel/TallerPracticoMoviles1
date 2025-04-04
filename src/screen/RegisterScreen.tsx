@@ -1,10 +1,11 @@
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react'
 import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { styles } from '../theme/Estiloregister';
+
 import { User } from '../navigator/StackNavigator';
 import { ImputComponent } from '../components/ImputComponentes';
 import { ButonComponent } from '../components/ButonComponent';
+import { styles } from '../theme/EstilosApp';
 
 //interface para el objeto formulario
 interface FormRegister {

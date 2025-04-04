@@ -1,23 +1,27 @@
 import { CommonActions, useNavigation, NavigationContainer } from '@react-navigation/native';
 import React, { useState } from 'react'
 import { Alert, Button, Image, ImageBackground, StatusBar, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-import { styles } from '../theme/EstilosLogin';
 import { ImputComponent } from '../components/ImputComponentes';
 import { ButonComponent } from '../components/ButonComponent';
 import { User } from '../navigator/StackNavigator';
+import { styles } from '../theme/EstilosApp';
+import { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR } from '../theme/commons/constains';
+import { setStatusBarHidden } from 'expo-status-bar';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import { BodyComponent } from '../components/BodyComponent';
 
-interface formLogin{
+interface formLogin {
     email: string;
     password: string;
 }
 
 //interface props del stack navigator
-interface Props{
+interface Props {
     users: User[];
 }
 
 
-export const LoginScreen = ({users}: Props) => {
+export const LoginScreen = ({ users }: Props) => {
     //hook usestate para manejar el estado del formulario
     const [formLogin, setFormLogin] = useState<formLogin>({
         email: '',
@@ -30,7 +34,7 @@ export const LoginScreen = ({users}: Props) => {
     //hook navigation para navegar entre pantallas
     const navigation = useNavigation();
 
-    
+
 
     //funcion para el cambio de valores del objeto del formulario
     const handleChangeValue = (name: string, value: string): void => {
@@ -40,7 +44,7 @@ export const LoginScreen = ({users}: Props) => {
         // value : valor del input
     }
     //funcion para validad si existe el usuario
-    const verifyUser = (): User | undefined=> {
+    const verifyUser = (): User | undefined => {
         const existUser = users.find(user => user.email === formLogin.email && user.password === formLogin.password);
         return existUser;
     }
@@ -48,14 +52,14 @@ export const LoginScreen = ({users}: Props) => {
     //funcion para iniciar sesion
     const handleLoginForm = () => {
         //validamos que los campos no esten vacios
-        if(formLogin.email === '' || formLogin.password === ''){
+        if (formLogin.email === '' || formLogin.password === '') {
             //mensaje de alerta
             alert('Todos los campos son obligatorios');
             return;
             //el return termina la ejecucion de la funcion
         }
         //validamos si existe el usuario
-        if(!verifyUser()){
+        if (!verifyUser()) {
             Alert.alert('Error', 'Usuario o contraseña incorrectos');
             return;
         }
@@ -64,47 +68,60 @@ export const LoginScreen = ({users}: Props) => {
         //console.log(formLogin);
 
     }
-    
 
-    
-    
-    //const naigation = useNavigation();
     return (
 
-         <ImageBackground source={require('../img/fondo13.png')} style={styles.background}>
-            <View style={styles.container}>
-                {/* <StatusBar  
-                backgroundColor={'blue'}
-                barStyle={'light-content'}
-                translucent={true} /> */}
-                
-                <Image source={require('../img/logoTravel.png')} style={styles.logoSumer} ></Image>
 
 
-                <Text style={styles.inicioS}>Inicio de sesión</Text>
-                <Text>Email</Text>
+        <View>
+            <StatusBar backgroundColor={PRIMARY_COLOR} />
+            <Image source={require('../img/logoTravel.png')} style={styles.logoSumer2} ></Image>
+            <Text style={styles.inicioS}>Inicio de sesión</Text>
+            <BodyComponent>
+                <View>
+                    <Text>Email</Text>
+                    <ImputComponent contrasena='correo'
+                        handleChangeValue={handleChangeValue}
+                        name='email' teclado='email-address' />
+                    <Text>Contraseña</Text>
+                    <ImputComponent contrasena='contrasena'
+                        handleChangeValue={handleChangeValue}
+                        name='password'
+                        teclado='default'
+                        isPassword={hidenPassword} />
+                    <Icon name={(hidenPassword) ? 'visibility' : 'visibility-off'}
+                        size={20}
+                        color={'black'}
+                        style={styles.icon}
+                        onPress={() => setHidenPassword(!hidenPassword)} />
 
-                <ImputComponent contrasena='correo'
-                handleChangeValue={handleChangeValue}
-                name='email' teclado='email-address' />
-                <Text>Contraseña</Text>
-                <ImputComponent contrasena='contrasena' 
-                handleChangeValue={handleChangeValue}
-                name='password'
-                teclado='default'
-                isPassword={hidenPassword} />
+                </View>
+
+
+
                 <TouchableOpacity>
                     <Text style={styles.contraseña}>¿Olvidaste tu contraseña?</Text>
                 </TouchableOpacity>
                 <ButonComponent title='Ingresar' handleLogin={handleLoginForm} />
-                
+
                 <TouchableOpacity
                     onPress={() => navigation.dispatch(CommonActions.navigate({ name: 'Register' }))}>
                     <Text style={styles.registro}>¿No tienes cuenta?. Regístrate</Text>
                 </TouchableOpacity>
-            </View>
+                <Icon name='home'
+                    size={30}
+                    color={'black'}
+                    style={styles.iconHome}
+                    onPress={() => navigation.dispatch(CommonActions.navigate({ name: 'Home' }))}
+                />
 
-         </ImageBackground>
+            </BodyComponent>
+
+
+
+        </View>
+
+
 
     );
 };

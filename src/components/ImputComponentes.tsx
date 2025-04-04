@@ -1,6 +1,7 @@
 import React from 'react'
 import { KeyboardTypeOptions, TextInput } from 'react-native'
-import { styles } from '../theme/EstilosLogin';
+import { styles } from '../theme/EstilosApp';
+
 
 interface Props {
   contrasena: string;
