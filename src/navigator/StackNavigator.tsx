@@ -34,15 +34,16 @@ export const StackNavigator = () => {
 
   return (
     <Stack.Navigator
-      screenOptions={{
-        headerShown: false,
-        cardStyle: {
-
-        }
-      }}>
-      {/* <Stack.Screen name="Home" component={HomeScreen}/> */}
-      {/* <Stack.Screen name="Login" children={() => <LoginScreen users={usersManager} />} /> */}
-      {/* <Stack.Screen name="Register" children={() => <RegisterScreen users={usersManager} addUser={addUser} />} /> */}
+    screenOptions={{
+      headerShown:false,
+      cardStyle:{
+        //backgroundColor: 'white',
+      }
+    }}
+      >
+      <Stack.Screen name="Home" component={HomeScreen}/>
+      <Stack.Screen name="Login" children={() => <LoginScreen users={usersManager} />} />
+      <Stack.Screen name="Register" children={() => <RegisterScreen users={usersManager} addUser={addUser} />} />
       <Stack.Screen name="Productos" component={Producto} />
 
     </Stack.Navigator>

@@ -5,10 +5,11 @@ export const styles = StyleSheet.create({
         flex: 1,
         resizeMode: 'cover',
         opacity: 0.9,
+        
 
     },
     contenedor1: {
-        flex: 1,
+        //flex: 1,
         backgroundColor: '#F7EEDD',
     },
     
@@ -66,7 +67,7 @@ export const styles = StyleSheet.create({
         borderTopLeftRadius: 30,
         borderTopRightRadius: 30,
         paddingHorizontal: 45,
-        paddingTop: 40
+        paddingTop: 30
     },
 
 
@@ -98,14 +99,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
 
     },
-    // datos: {
-    //     borderRadius: 10,
-    //     height: 40,
-    //     borderColor: 'gray',
-    //     borderWidth: 1,
-    //     marginBottom: 12,
-    //     paddingLeft: 8,
-    // },
+    
     contraseña: {
         color: 'blue',
         marginBottom: 20,
@@ -140,27 +134,35 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     containerCard: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        padding: 10,
-        borderWidth: 1,
-        borderColor: PRIMARY_COLOR,
-        borderRadius: 5,
-        shadowColor: '#000',
-        shadowOpacity: 0.23,
-        shadowRadius: 2.62,
-        elevation: 1,
-        marginBottom: 13
+        backgroundColor: '#FFFFFF', // Fondo blanco
+    borderRadius: 10, // Bordes redondeados
+    padding: 15, // Espaciado interno
+    marginBottom: 15, // Espaciado entre tarjetas
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 3, // Sombra para Android
+    flexDirection: 'column', // Elementos en columna
+    alignItems: 'center', // Centrar contenido horizontalmente
+},
+    
+    textDescription: {
+        fontSize: 12,
+        color: '#777',
+        marginTop: 5,
+        fontStyle: 'italic',
     },
     titleProduct: {
-        fontSize: 15,
-        fontWeight: 'bold'
+        fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
     },
     imgProduct: {
-        width: 200,
-        height: 200,
-        marginBottom: 8,
-        borderRadius:30
+        width: '100%', // Imagen ocupa todo el ancho
+        height: 150, // Altura fija
+        borderRadius: 10, // Bordes redondeados
+        marginBottom: 10, // Espaciado debajo de la imagen
     },
     containerModal: {
         flex: 2,
@@ -249,26 +251,40 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#000"
     },
-    containerTotal:{
-        marginVertical:10,
-        alignItems:'flex-end',
-        paddingHorizontal:10
-    },
-    textTotal:{
-        fontSize: 16,
-        fontWeight:'bold'
-    },
-    headerHome: {
+    
+    cartItem: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        marginBottom: 10,
     },
-    textIconCar: {
-        backgroundColor: SECONDARY_COLOR,
-        paddingHorizontal: 5,
-        borderRadius: 20,
-        fontSize: 12,
-        fontWeight: 'bold'
+    infoContainer: {
+        marginTop: 10,
+        paddingHorizontal: 10,
     },
+    hotelName: {
+        fontSize: 18,
+        fontWeight: 'bold',
+        color: '#333',
+        marginBottom: 5,
+    },
+    row: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 5,
+    },
+    textInfo: {
+        fontSize: 14,
+    color: '#555',
+    marginLeft: 5,
+    },
+    addButton: {
+        marginTop: 10, // Espaciado superior
+        alignItems: 'center', // Centrar el botón horizontalmente
+        justifyContent: 'center', // Centrar el contenido del botón
+    },
+    
+    
+    
 
 
 

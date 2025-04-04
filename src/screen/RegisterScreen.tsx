@@ -6,6 +6,7 @@ import { User } from '../navigator/StackNavigator';
 import { ImputComponent } from '../components/ImputComponentes';
 import { ButonComponent } from '../components/ButonComponent';
 import { styles } from '../theme/EstilosApp';
+import { BodyComponent } from '../components/BodyComponent';
 
 //interface para el objeto formulario
 interface FormRegister {
@@ -83,10 +84,11 @@ export const RegisterScreen = ({ users, addUser }: Props) => {
   const navigation = useNavigation();
   return (
     
-
-      <View style={styles.container}>
-        <Image source={require('../img/logoSummer.png')} style={styles.logoSumer} />
-
+      
+      <View>
+        
+        <BodyComponent>
+        <Image source={require('../img/logoSummer.png')} style={styles.logoSumer2} />
         <Text style={styles.registros}>Crea una cuenta nueva</Text>
         <View>
           <Text>Nombre</Text>
@@ -120,12 +122,16 @@ export const RegisterScreen = ({ users, addUser }: Props) => {
           name='confirmar'  
           teclado='default'
           />
+          <ButonComponent title='Registrar' handleLogin={handleRegister}/>
         </View>
-        <ButonComponent title='Registrar' handleLogin={handleRegister}/>
-        
         <TouchableOpacity onPress={() => navigation.dispatch(CommonActions.navigate({ name: 'Login' }))}>
           <Text style={styles.ingreso}>¿Ya tienes una cuenta? Inicia sesión</Text>
         </TouchableOpacity>
+        </BodyComponent>
+        
+        
+        
+        
       </View> 
 
     

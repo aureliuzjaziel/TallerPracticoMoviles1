@@ -74,10 +74,11 @@ export const LoginScreen = ({ users }: Props) => {
 
 
         <View>
-            <StatusBar backgroundColor={PRIMARY_COLOR} />
-            <Image source={require('../img/logoTravel.png')} style={styles.logoSumer2} ></Image>
+            
+            
             <Text style={styles.inicioS}>Inicio de sesión</Text>
             <BodyComponent>
+            <Image source={require('../img/logoTravel.png')} style={styles.logoSumer2} ></Image>
                 <View>
                     <Text>Email</Text>
                     <ImputComponent contrasena='correo'

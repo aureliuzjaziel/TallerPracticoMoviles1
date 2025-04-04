@@ -10,15 +10,24 @@ interface Props {
     isVisible: boolean;
     setShowModal: () => void;
     product: Product;
+    addToCart: (product: Product) => void; // Función para agregar al carrito
 }
 
-export const ModalProducts = ({ isVisible, setShowModal, product }: Props) => {
+export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: Props) => {
     const { width } = useWindowDimensions();
     const [showModalCar, setShowModalCar] = useState<boolean>(false); // Estado para controlar ModalCar
+    const [cart, setCart] = useState<Product[]>([]); // Estado para almacenar los productos en el carrito
 
     const handleAddCar = () => {
+        // Agrega el producto al carrito
+        addToCart(product); // Llama a la función para agregar al carrito
+        setCart((prevCart) => [...prevCart, product]); // Actualiza el estado del carrito
         setShowModal(); // Cierra el ModalProducts
-        setShowModalCar(true); // Abre el ModalCar
+    };
+
+    const handleOpenCart = () => {
+        // Abre el ModalCar
+        setShowModalCar(true);
     };
 
     return (
@@ -26,6 +35,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product }: Props) => {
             <Modal visible={isVisible} animationType="fade" transparent={true}>
                 <View style={styles.containerModal}>
                     <View style={{ ...styles.contentModal, width: width * 0.8 }}>
+                        {/* Encabezado del modal */}
                         <View style={styles.headerModal}>
                             <Text style={styles.titleModal}>
                                 {product.nombre} - ${product.precio.toFixed(2)}
@@ -34,15 +44,25 @@ export const ModalProducts = ({ isVisible, setShowModal, product }: Props) => {
                                 <Icon name="cancel" size={20} color={PRIMARY_COLOR} onPress={setShowModal} />
                             </View>
                         </View>
+
+                        {/* Imagen del producto */}
                         <View style={styles.containerImage}>
                             <Image source={product.img} style={styles.imageModal} />
                         </View>
-                        <View>
-                            <View style={{ alignItems: 'center' }}>
-                                <Text style={styles.textQuantity}>
-                                    Total: ${(product.precio * 1).toFixed(2)}
-                                </Text>
+
+                        {/* Información adicional */}
+                        <View style={styles.infoContainer}>
+                            <Text style={styles.hotelName}>{product.nombre}</Text>
+                            <View style={styles.row}>
+                                <Icon name="location-on" size={20} color={PRIMARY_COLOR} />
+                                <Text style={styles.textInfo}>Dirección del hotel</Text>
                             </View>
+                            <Text style={styles.textInfo}>Precio por adulto: ${product.precio.toFixed(2)}</Text>
+                            <Text style={styles.textInfo}>Precio por niño: ${(product.precio * 0.5).toFixed(2)}</Text>
+                        </View>
+
+                        {/* Botón para agregar al carrito */}
+                        <View>
                             <TouchableOpacity style={styles.buttonAddCar} onPress={handleAddCar}>
                                 <Text style={styles.buttonTextAddCar}>Comprar Ahora</Text>
                             </TouchableOpacity>
@@ -54,7 +74,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product }: Props) => {
             {/* ModalCar */}
             <ModalCar
                 isVisible={showModalCar}
-                product={product}
+                cart={cart} // Pasamos el carrito completo
                 setShowModalCar={() => setShowModalCar(false)}
             />
         </>

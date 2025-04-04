@@ -13,7 +13,7 @@ export const BodyComponent = ({children}:Props) => {
   return (
     <View style={{
       ...styles.containerBody,
-      height: height * 0.88
+      height: height * 0.80
   }}>
         {children}
     </View>

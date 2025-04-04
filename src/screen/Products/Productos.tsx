@@ -1,66 +1,100 @@
-import React from 'react';
-import { FlatList, View, Text, Image, StyleSheet, ScrollView, ImageBackground, StatusBar } from 'react-native';
-import { styles } from '../../theme/EstiloProducto';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import React, { useState } from 'react';
+import { FlatList, View, StatusBar } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { PRIMARY_COLOR } from '../../theme/commons/constains';
 import { TitleComponent } from '../../components/TitleComponent';
 import { BodyComponent } from '../../components/BodyComponent';
 import { CarProducts } from './components/CarProducts';
 import { ButonComponent } from '../../components/ButonComponent';
+import { ModalCar } from './components/ModalCar';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
-
-//interface para los objetos Productos
+// Interface para los objetos Productos
 export interface Product {
     id: number;
     nombre: string;
     precio: number;
     img: any;
+    cantidad?: number; // Cantidad opcional para el carrito
+    ranking: number; // Ranking de estrellas (1 a 5)
+    dias: number; // Duración del paquete turístico en días
+    descripcion: string; // Descripción del producto
 }
 
-
-
-
 export const Producto = () => {
-    const products = [
-        { id: 1, nombre: 'BRAZIL', precio: 800, img: require('../../img/brazil.png') },
-        { id: 2, nombre: 'ECUADOR', precio: 200, img: require('../../img/ecuador.png') },
-        { id: 3, nombre: 'JAPON', precio: 2500, img: require('../../img/japon.png') },
-        { id: 4, nombre: 'PARIS', precio: 1200, img: require('../../img/pais.png') },
-        { id: 5, nombre: 'PERÚ', precio: 350, img: require('../../img/peru.png') },
+    const products: Product[] = [
+        { id: 1, nombre: 'BRAZIL', precio: 800, img: require('../../img/brazil.png'), ranking: 4.5, dias: 7, descripcion: 'Explora las playas y la cultura vibrante de Brasil.' },
+        { id: 2, nombre: 'ECUADOR', precio: 200, img: require('../../img/ecuador.png'), ranking: 4.0, dias: 5, descripcion: 'Descubre los Andes y la Amazonía en Ecuador.' },
+        { id: 3, nombre: 'JAPON', precio: 2500, img: require('../../img/japon.png'), ranking: 5.0, dias: 10, descripcion: 'Sumérgete en la tradición y modernidad de Japón.' },
+        { id: 4, nombre: 'PARIS', precio: 1200, img: require('../../img/pais.png'), ranking: 4.8, dias: 8, descripcion: 'Visita la ciudad del amor y sus icónicos monumentos.' },
+        { id: 5, nombre: 'PERÚ', precio: 350, img: require('../../img/peru.png'), ranking: 4.2, dias: 6, descripcion: 'Explora Machu Picchu y la rica historia de Perú.' },
     ];
 
-
-
+    const [cart, setCart] = useState<Product[]>([]); // Estado para almacenar los productos guardados
+    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
+    const [showModalCar, setShowModalCar] = useState<boolean>(false); // Estado para controlar la visibilidad del ModalCar
+    const [showModalProduct, setShowModalProduct] = useState<boolean>(false); // Estado para controlar ModalProducts
     const navigation = useNavigation();
-    const handleGoHome= () => {
-        navigation.dispatch(CommonActions.navigate({ name: 'HomeScreen' }));
-    }
+
+    const handleGoHome = () => {
+        navigation.dispatch(CommonActions.navigate({ name: 'Home' }));
+    };
+
+    const handleAddToCart = (product: Product) => {
+        setCart((prevCart) => {
+            const existingProduct = prevCart.find((item) => item.id === product.id);
+            if (existingProduct) {
+                // Si el producto ya existe, incrementa la cantidad
+                return prevCart.map((item) =>
+                    item.id === product.id ? { ...item, cantidad: (item.cantidad || 1) + 1 } : item
+                );
+            } else {
+                // Si el producto no existe, agrégalo con cantidad inicial de 1
+                return [...prevCart, { ...product, cantidad: 1 }];
+            }
+        });
+    };
+
+    const handleOpenCart = () => {
+        setShowModalCar(true); // Abre el ModalCar
+    };
+
+    const handleOpenProductModal = (product: Product) => {
+        setSelectedProduct(product); // Establece el producto seleccionado
+        setShowModalProduct(true); // Abre el ModalProducts
+    };
 
     return (
-        <View>
-            <StatusBar backgroundColor={PRIMARY_COLOR} />
+        <View >
+            <StatusBar/>
             <TitleComponent title="Productos" />
+            <Icon
+                    name="bookmark-add"
+                    size={30}
+                    color={PRIMARY_COLOR}
+                    onPress={handleOpenCart} // Abre el ModalCar
+                />
+            
+            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', padding: 10 }}>
+                
+            </View>
             <BodyComponent>
                 <FlatList
                     data={products}
-                    renderItem={({ item }) => <CarProducts product={item} />}
-                    keyExtractor={item => item.id.toString()}
+                    renderItem={({ item }) => (
+                        <CarProducts product={item} addToCart={handleAddToCart} />
+                    )}
+                    keyExtractor={(item) => item.id.toString()}
                 />
-                <ButonComponent title='Regresar al Inicio' handleLogin={handleGoHome}/>
-
+                <ButonComponent title="Regresar al Inicio" handleLogin={handleGoHome} />
             </BodyComponent>
+
+            {/* ModalCar para visualizar los productos guardados */}
+            <ModalCar
+                isVisible={showModalCar}
+                cart={cart} // Pasamos el carrito completo
+                setShowModalCar={() => setShowModalCar(false)} // Cierra el ModalCar
+            />
         </View>
-
-
-
-
-
-
-
-
-
-
-
     );
 };
