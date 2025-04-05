@@ -5,20 +5,17 @@ export const styles = StyleSheet.create({
         flex: 1,
         resizeMode: 'cover',
         opacity: 0.9,
-        
+
 
     },
-    contenedor1: {
-        
-        backgroundColor: '#F7EEDD',
-    },
+
     headerHome: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
         marginRight: 20,
         marginTop: -30,
     },
-    
+
     logoSumer: {
         width: 190,
         height: 190,
@@ -28,23 +25,16 @@ export const styles = StyleSheet.create({
         left: 30,
     },
     logoSumer2: {
-        
+
         width: 120,
         height: 120,
         position: 'relative',
         marginBottom: 20,
         top: 10,
         alignSelf: 'center',
-        
+
     },
-    registrar: {
-        padding: 10,
-        backgroundColor: '#41C9E2',
-        fontSize: 24,
-        marginBottom: 10,
-        textAlign: 'center',
-        borderRadius: 10,
-    },
+
     title: {
         color: TERTIARY_COLOR,
         fontSize: 25,
@@ -100,15 +90,6 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
 
     },
-    
-    inicioS: {
-        fontWeight: 'bold',
-        fontSize: 18,
-        marginBottom: 50,
-        textAlign: 'center',
-
-    },
-    
     contraseña: {
         color: 'blue',
         marginBottom: 20,
@@ -138,24 +119,24 @@ export const styles = StyleSheet.create({
         marginBottom: 50,
         textShadowColor: 'rgba(178, 173, 173, 0.75)',
         textShadowOffset: { width: 2, height: 2 },
-        textShadowRadius: 5,  
-        padding: 10, 
+        textShadowRadius: 5,
+        padding: 10,
         borderRadius: 10,
     },
     containerCard: {
         backgroundColor: '#FFFFFF', // Fondo blanco
-    borderRadius: 10, // Bordes redondeados
-    padding: 15, // Espaciado interno
-    marginBottom: 15, // Espaciado entre tarjetas
-    shadowColor: '#000', // Sombra para iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3, // Sombra para Android
-    flexDirection: 'column', // Elementos en columna
-    alignItems: 'center', // Centrar contenido horizontalmente
-},
-    
+        borderRadius: 10, // Bordes redondeados
+        padding: 15, // Espaciado interno
+        marginBottom: 15, // Espaciado entre tarjetas
+        shadowColor: '#000', // Sombra para iOS
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 3, // Sombra para Android
+        flexDirection: 'column', // Elementos en columna
+        alignItems: 'center', // Centrar contenido horizontalmente
+    },
+
     textDescription: {
         fontSize: 12,
         color: '#777',
@@ -164,8 +145,8 @@ export const styles = StyleSheet.create({
     },
     titleProduct: {
         fontSize: 16,
-    fontWeight: 'bold',
-    color: '#333',
+        fontWeight: 'bold',
+        color: '#333',
     },
     imgProduct: {
         width: '100%', // Imagen ocupa todo el ancho
@@ -175,35 +156,35 @@ export const styles = StyleSheet.create({
     },
     containerModal: {
         flex: 1,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente
-    justifyContent: 'center',
-    alignItems: 'center',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente
+        justifyContent: 'center',
+        alignItems: 'center',
     },
     contentModal: {
         width: '90%', // Ancho del modal
-    backgroundColor: '#FFFFFF', // Fondo blanco
-    borderRadius: 15, // Bordes redondeados
-    padding: 20, // Espaciado interno
-    shadowColor: '#000', // Sombra para iOS
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5, // Sombra para Android
+        backgroundColor: '#FFFFFF', // Fondo blanco
+        borderRadius: 15, // Bordes redondeados
+        padding: 20, // Espaciado interno
+        shadowColor: '#000', // Sombra para iOS
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 5,
+        elevation: 5, // Sombra para Android
     },
     headerModal: {
         flexDirection: 'row', // Elementos en fila
-    justifyContent: 'space-between', // Espaciado entre el título y el ícono
-    alignItems: 'center', // Alineación vertical
-    borderBottomWidth: 1, // Línea inferior
-    borderBottomColor: '#ccc', // Color de la línea
-    paddingBottom: 10, // Espaciado inferior
-    marginBottom: 15, // Espaciado debajo del encabezado
+        justifyContent: 'space-between', // Espaciado entre el título y el ícono
+        alignItems: 'center', // Alineación vertical
+        borderBottomWidth: 1, // Línea inferior
+        borderBottomColor: '#ccc', // Color de la línea
+        paddingBottom: 10, // Espaciado inferior
+        marginBottom: 15, // Espaciado debajo del encabezado
     },
     titleModal: {
-    fontSize: 18, // Tamaño de fuente
-    fontWeight: 'bold', // Negrita
-    color: '#333', // Color oscuro
-},
+        fontSize: 18, // Tamaño de fuente
+        fontWeight: 'bold', // Negrita
+        color: '#333', // Color oscuro
+    },
     imageModal: {
         width: 200,
         height: 200
@@ -215,38 +196,8 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-end'
     },
-    volver: {
-        padding: 10,
-        backgroundColor: '#38d692',
-        fontSize: 30,
-        fontWeight: 'bold',
-        margin: 30,
-        textAlign: 'center',
-        borderRadius: 100,
-      },
-      containerQuantity: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    buttonQuantity: {
-        height: 50,
-        width: 50,
-        backgroundColor: PRIMARY_COLOR,
-        borderRadius: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 15
-    },
-    buttonTextQuantity: {
-        color: SECONDARY_COLOR,
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    textQuantity: {
-        fontSize: 16,
-        fontWeight: 'bold'
-    },
+
+
     buttonAddCar: {
         backgroundColor: PRIMARY_COLOR,
         alignItems: 'center',
@@ -258,19 +209,9 @@ export const styles = StyleSheet.create({
         color: SECONDARY_COLOR,
         fontWeight: 'bold'
     },
-    headerTable: {
-        flexDirection: 'row',
-        justifyContent: 'space-between'
-    },
-    headerDescription: {
-        flexDirection: 'row',
-    },
-    textHeaderTable: {
-        fontSize: 15,
-        fontWeight: 'bold',
-        color: "#000"
-    },
-    
+
+
+
     cartItem: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -293,8 +234,8 @@ export const styles = StyleSheet.create({
     },
     textInfo: {
         fontSize: 14,
-    color: '#555',
-    marginLeft: 5,
+        color: '#555',
+        marginLeft: 5,
     },
     addButton: {
         marginTop: 10, // Espaciado superior
@@ -305,5 +246,5 @@ export const styles = StyleSheet.create({
         marginLeft: 10, // Espaciado entre la imagen y el texto
         flex: 1, // Ocupa el espacio restante
     },
-    
+
 });

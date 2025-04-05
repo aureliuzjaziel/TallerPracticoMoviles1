@@ -16,23 +16,31 @@ export const ModalCar = ({ isVisible, cart, setShowModalCar }: Props) => {
         <Modal visible={isVisible} animationType="slide" transparent={true}>
             <View style={styles.containerModal}>
                 <View style={styles.contentModal}>
+                    {/* Encabezado del modal */}
                     <View style={styles.headerModal}>
-                        <Text style={styles.titleModal}>Carrito de Compras</Text>
-                        <Icon name="cancel" size={20} color={PRIMARY_COLOR} onPress={setShowModalCar} />
+                        <Text style={styles.titleModal}>Tus Favoritos</Text>
+                        <Icon name="cancel" size={24} color={PRIMARY_COLOR} onPress={setShowModalCar} />
                     </View>
+
+                    {/* Lista de productos en el carrito */}
                     <FlatList
                         data={cart}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             <View style={styles.cartItem}>
                                 <Image source={item.img} style={styles.imageModal} />
-                                <Text style={styles.titleModal}>{item.nombre}</Text>
-                                <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
+                                <View style={styles.cartItemInfo}>
+                                    <Text style={styles.titleProduct}>{item.nombre}</Text>
+                                    <Text style={styles.textInfo}>Precio: ${item.precio.toFixed(2)}</Text>
+                                    <Text style={styles.textInfo}>Cantidad: {item.cantidad || 1}</Text>
+                                </View>
                             </View>
                         )}
                     />
+
+                    {/* Botón para cerrar el modal */}
                     <TouchableOpacity style={styles.buttonAddCar} onPress={setShowModalCar}>
-                        <Text style={styles.buttonTextAddCar}>Cerrar</Text>
+                        <Text style={styles.buttonTextAddCar}>Contactar con un Asessor</Text>
                     </TouchableOpacity>
                 </View>
             </View>
