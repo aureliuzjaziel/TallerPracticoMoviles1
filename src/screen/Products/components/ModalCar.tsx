@@ -33,13 +33,30 @@ export const ModalCar = ({ isVisible, cart, setShowModalCar, removeFromCart }: P
                         renderItem={({ item }) => (
                             <View style={styles.cartItem}>
                                 <Image source={item.img} style={styles.imageModal} />
-                                <Text style={styles.titleModal}>{item.nombre}</Text>
-                                <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
+
+                                {/* Información del producto */}
+                                <View style={styles.productInfo}>
+                                    <Text style={styles.titleModal}>{item.nombre}</Text>
+                                    <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
+                                    <Text style={styles.textQuantity}>Cantidad: {item.cantidad}</Text>
+                                </View>
+
+                                {/* Botón para eliminar el producto del carrito */}
+                                <TouchableOpacity style={styles.removeButton} onPress={() => removeFromCart(item.id)}>
+                                    <Icon name="cancel" style={styles.removeButtonIcon} />
+                                </TouchableOpacity>
                             </View>
                         )}
                     />
+
+                    {/* Mostrar el total */}
+                    <View style={styles.totalContainer}>
+                        <Text style={styles.textTotal}>Total: ${total.toFixed(2)}</Text>
+                    </View>
+
+                    {/* Botón para cerrar el modal */}
                     <TouchableOpacity style={styles.buttonAddCar} onPress={setShowModalCar}>
-                        <Text style={styles.buttonTextAddCar}>Contactar con un Asessor</Text>
+                        <Text style={styles.buttonTextAddCar}>Contactar con un Asesor</Text>
                     </TouchableOpacity>
                 </View>
             </View>
