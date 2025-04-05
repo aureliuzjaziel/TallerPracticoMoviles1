@@ -25,10 +25,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
         setShowModal(); // Cierra el ModalProducts
     };
 
-    const handleOpenCart = () => {
-        // Abre el ModalCar
-        setShowModalCar(true);
-    };
+    
 
     return (
         <>
@@ -55,7 +52,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
                             <Text style={styles.hotelName}>{product.nombre}</Text>
                             <View style={styles.row}>
                                 <Icon name="location-on" size={20} color={PRIMARY_COLOR} />
-                                <Text style={styles.textInfo}>Dirección del hotel</Text>
+                                <Text style={styles.textInfo}>{product.direccion}</Text>
                             </View>
                             <Text style={styles.textInfo}>Precio por adulto: ${product.precio.toFixed(2)}</Text>
                             <Text style={styles.textInfo}>Precio por niño: ${(product.precio * 0.5).toFixed(2)}</Text>

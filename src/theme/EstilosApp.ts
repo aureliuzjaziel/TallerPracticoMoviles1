@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
 
     },
     contenedor1: {
-
+        
         backgroundColor: '#F7EEDD',
     },
     headerHome: {
@@ -37,14 +37,7 @@ export const styles = StyleSheet.create({
         alignSelf: 'center',
 
     },
-    registrar: {
-        padding: 10,
-        backgroundColor: '#41C9E2',
-        fontSize: 24,
-        marginBottom: 10,
-        textAlign: 'center',
-        borderRadius: 10,
-    },
+
     title: {
         color: TERTIARY_COLOR,
         fontSize: 25,
@@ -100,7 +93,7 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
 
     },
-
+    
     inicioS: {
         fontWeight: 'bold',
         fontSize: 18,
@@ -108,7 +101,7 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
 
     },
-
+    
     contraseña: {
         color: 'blue',
         marginBottom: 20,
@@ -200,20 +193,10 @@ export const styles = StyleSheet.create({
         marginBottom: 15, // Espaciado debajo del encabezado
     },
     titleModal: {
-        fontSize: 18, // Tamaño de fuente
-        fontWeight: 'bold', // Negrita
-        color: '#333', // Color oscuro
-    },
-    cartItemDetails: {
-        flexDirection: 'row',
-        alignItems: 'center',
-
-
-    },
-    productInfo: {
-        flexDirection: 'column',
-        marginLeft: 40,
-    },
+    fontSize: 18, // Tamaño de fuente
+    fontWeight: 'bold', // Negrita
+    color: '#333', // Color oscuro
+},
     imageModal: {
         width: 200,
         height: 200
@@ -233,8 +216,8 @@ export const styles = StyleSheet.create({
         margin: 30,
         textAlign: 'center',
         borderRadius: 100,
-    },
-    containerQuantity: {
+      },
+      containerQuantity: {
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center'
@@ -281,7 +264,7 @@ export const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: "#000"
     },
-
+    
     cartItem: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -316,33 +299,5 @@ export const styles = StyleSheet.create({
         marginLeft: 10, // Espaciado entre la imagen y el texto
         flex: 1, // Ocupa el espacio restante
     },
-    carrito: {
-        position: 'absolute',
-        right: -9,
-        top: -9,
-        backgroundColor: 'red',
-        borderRadius: 20,
-        minWidth: 25,
-        height: 25,
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 4,
-    },
-    removeButton: {
-        marginLeft: 'auto',
-        padding: 5,
-    },
-    totalContainer: {
-        marginTop: 20,
-        alignItems: 'flex-end',
-        paddingHorizontal: 15,
-    },
-    textTotal: {
-        fontSize: 20,
-        fontWeight: 'bold',
-        color: PRIMARY_COLOR,
-    },
     
-
-
 });

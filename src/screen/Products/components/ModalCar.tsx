@@ -20,40 +20,26 @@ export const ModalCar = ({ isVisible, cart, setShowModalCar, removeFromCart }: P
         <Modal visible={isVisible} animationType="slide" transparent={true}>
             <View style={styles.containerModal}>
                 <View style={styles.contentModal}>
+                    {/* Encabezado del modal */}
                     <View style={styles.headerModal}>
-                        <Text style={styles.titleModal}>Carrito de Compras</Text>
-                        <Icon name="cancel" size={20} color={PRIMARY_COLOR} onPress={setShowModalCar} />
+                        <Text style={styles.titleModal}>Tus Favoritos</Text>
+                        <Icon name="cancel" size={24} color={PRIMARY_COLOR} onPress={setShowModalCar} />
                     </View>
+
+                    {/* Lista de productos en el carrito */}
                     <FlatList
                         data={cart}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({ item }) => (
                             <View style={styles.cartItem}>
-                                <View style={styles.cartItemDetails}>
-                                    <Image source={item.img} style={styles.imageModal} />
-                                    <View style={styles.productInfo}>
-                                        <Text style={styles.titleModal}>{item.nombre}</Text>
-                                        <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
-                                        <Text style={styles.textQuantity}>Cantidad: {item.cantidad}</Text>
-                                    </View>
-                                </View>
-
-                                <TouchableOpacity
-                                    onPress={() => removeFromCart(item.id)}
-                                    style={styles.removeButton}
-                                >
-                                    <Icon name="cancel" size={20} color="red" />
-                                </TouchableOpacity>
+                                <Image source={item.img} style={styles.imageModal} />
+                                <Text style={styles.titleModal}>{item.nombre}</Text>
+                                <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
                             </View>
                         )}
                     />
-
-                    <View style={styles.totalContainer}>
-                        <Text style={styles.textTotal}>Total: ${total.toFixed(2)}</Text>
-                    </View>
-
                     <TouchableOpacity style={styles.buttonAddCar} onPress={setShowModalCar}>
-                        <Text style={styles.buttonTextAddCar}>Cerrar</Text>
+                        <Text style={styles.buttonTextAddCar}>Contactar con un Asessor</Text>
                     </TouchableOpacity>
                 </View>
             </View>
