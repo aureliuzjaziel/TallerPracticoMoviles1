@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { FlatList, View, StatusBar } from 'react-native';
+import { FlatList, View, StatusBar, Text } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
 import { PRIMARY_COLOR, TERTIARY_COLOR } from '../../theme/commons/constains';
 import { TitleComponent } from '../../components/TitleComponent';
@@ -58,32 +58,47 @@ export const Producto = () => {
     };
 
     const handleOpenCart = () => {
-        setShowModalCar(true); // Abre el ModalCar
+        if (cart.length > 0) { // Solo abre el carrito si hay productos
+            setShowModalCar(true); // Abre el ModalCar
+        }
     };
 
     const handleOpenProductModal = (product: Product) => {
-        setSelectedProduct(product); // Establece el producto seleccionado
-        setShowModalProduct(true); // Abre el ModalProducts
+        setSelectedProduct(product);
+        setShowModalProduct(true);
+    };
+
+    const handleRemoveFromCart = (productId: number) => {
+        setCart((prevCart) => {
+            return prevCart.filter((item) => item.id !== productId);
+        });
     };
 
     return (
-        <View >
-            <StatusBar/>
+        <View>
+            <StatusBar />
 
             <TitleComponent title="Productos" />
-            
 
             <View style={styles.headerHome}>
-            <Icon
-                name="bookmark-add"
-                size={30}
-                color={TERTIARY_COLOR}
-                onPress={handleOpenCart} // Abre el ModalCar
-            />
-
+                <View style={{ position: 'relative' }}>
+                    <Icon
+                        name="shopping-cart"
+                        size={38}
+                        color={cart.length === 0 ? '#ccc' : TERTIARY_COLOR}
+                        onPress={handleOpenCart}
+                    />
+                    {cart.length > 0 && (
+                        <View style={styles.carrito}>
+                            <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold' }}>
+                                {cart.reduce((total, item) => total + (item.cantidad || 1), 0)}
+                            </Text>
+                        </View>
+                    )}
+                </View>
             </View>
-            <BodyComponent>
 
+            <BodyComponent>
                 <FlatList
                     data={products}
                     renderItem={({ item }) => (
@@ -94,11 +109,11 @@ export const Producto = () => {
                 <ButonComponent title="Regresar al Inicio" handleLogin={handleGoHome} />
             </BodyComponent>
 
-            
-            <ModalCar 
+            <ModalCar
                 isVisible={showModalCar}
-                cart={cart} // Pasamos el carrito completo
-                setShowModalCar={() => setShowModalCar(false)} // Cierra el ModalCar
+                cart={cart}
+                setShowModalCar={() => setShowModalCar(false)}
+                removeFromCart={handleRemoveFromCart}
             />
         </View>
     );

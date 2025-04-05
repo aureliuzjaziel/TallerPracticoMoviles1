@@ -8,7 +8,10 @@ export const styles = StyleSheet.create({
 
 
     },
+    contenedor1: {
 
+        backgroundColor: '#F7EEDD',
+    },
     headerHome: {
         flexDirection: 'row',
         justifyContent: 'flex-end',
@@ -90,6 +93,15 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
 
     },
+
+    inicioS: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        marginBottom: 50,
+        textAlign: 'center',
+
+    },
+
     contraseña: {
         color: 'blue',
         marginBottom: 20,
@@ -196,21 +208,62 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-end'
     },
-
-
+    volver: {
+        padding: 10,
+        backgroundColor: '#38d692',
+        fontSize: 30,
+        fontWeight: 'bold',
+        margin: 30,
+        textAlign: 'center',
+        borderRadius: 100,
+    },
+    containerQuantity: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonQuantity: {
+        height: 50,
+        width: 50,
+        backgroundColor: PRIMARY_COLOR,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: 'center',
+        margin: 15
+    },
+    buttonTextQuantity: {
+        color: SECONDARY_COLOR,
+        fontSize: 20,
+        fontWeight: 'bold'
+    },
+    textQuantity: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
     buttonAddCar: {
         backgroundColor: PRIMARY_COLOR,
         alignItems: 'center',
         paddingVertical: 10,
         borderRadius: 5,
-        marginTop: 10
+        marginTop: 10,
     },
     buttonTextAddCar: {
         color: SECONDARY_COLOR,
-        fontWeight: 'bold'
+        fontWeight: 'bold',
+        fontSize: 18,
     },
-
-
+    headerTable: {
+        flexDirection: 'row',
+        justifyContent: 'space-between'
+    },
+    headerDescription: {
+        flexDirection: 'row',
+    },
+    textHeaderTable: {
+        fontSize: 15,
+        fontWeight: 'bold',
+        color: "#000"
+    },
 
     cartItem: {
         flexDirection: 'row',
@@ -245,6 +298,45 @@ export const styles = StyleSheet.create({
     cartItemInfo: {
         marginLeft: 10, 
         flex: 1, 
+    },
+
+    carrito: {
+        position: 'absolute',
+        right: -5,
+        top: -5,
+        backgroundColor: 'red',
+        borderRadius: 10,
+        width: 20,
+        height: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    removeButton: {
+        marginLeft: 80,
+        padding: 5,
+        backgroundColor: TERTIARY_COLOR,
+        borderRadius: 50,
+        justifyContent: 'center',
+
+    },
+    removeButtonIcon: {
+        fontSize: 20,
+        color: 'red',
+    },
+    totalContainer: {
+        marginTop: 20,
+        alignItems: 'flex-end',
+        marginBottom: 20,
+    },
+    textTotal: {
+        fontSize: 22,
+        fontWeight: 'bold',
+        color: PRIMARY_COLOR,
+    },
+    productInfo: {
+        flexDirection: 'column',
+        textAlign: 'center',
+        justifyContent:'center'
     },
 
 });
