@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { FlatList, View, StatusBar } from 'react-native';
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import { PRIMARY_COLOR } from '../../theme/commons/constains';
+import { PRIMARY_COLOR, TERTIARY_COLOR } from '../../theme/commons/constains';
 import { TitleComponent } from '../../components/TitleComponent';
 import { BodyComponent } from '../../components/BodyComponent';
 import { CarProducts } from './components/CarProducts';
 import { ButonComponent } from '../../components/ButonComponent';
 import { ModalCar } from './components/ModalCar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import { styles } from '../../theme/EstilosApp';
 
 // Interface para los objetos Productos
 export interface Product {
@@ -67,18 +68,21 @@ export const Producto = () => {
     return (
         <View >
             <StatusBar/>
+
             <TitleComponent title="Productos" />
-            <Icon
-                    name="bookmark-add"
-                    size={30}
-                    color={PRIMARY_COLOR}
-                    onPress={handleOpenCart} // Abre el ModalCar
-                />
             
-            <View style={{ flexDirection: 'row', justifyContent: 'flex-end', padding: 10 }}>
-                
+
+            <View style={styles.headerHome}>
+            <Icon
+                name="bookmark-add"
+                size={30}
+                color={TERTIARY_COLOR}
+                onPress={handleOpenCart} // Abre el ModalCar
+            />
+
             </View>
             <BodyComponent>
+
                 <FlatList
                     data={products}
                     renderItem={({ item }) => (
@@ -89,8 +93,8 @@ export const Producto = () => {
                 <ButonComponent title="Regresar al Inicio" handleLogin={handleGoHome} />
             </BodyComponent>
 
-            {/* ModalCar para visualizar los productos guardados */}
-            <ModalCar
+            
+            <ModalCar 
                 isVisible={showModalCar}
                 cart={cart} // Pasamos el carrito completo
                 setShowModalCar={() => setShowModalCar(false)} // Cierra el ModalCar

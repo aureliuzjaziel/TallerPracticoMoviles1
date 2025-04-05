@@ -5,6 +5,7 @@ import { LoginScreen } from '../screen/LoginScreen';
 import { RegisterScreen } from '../screen/RegisterScreen';
 import { Producto } from '../screen/Products/Productos';
 import { HomeScreen } from '../screen/HomeScreen';
+import { QUATERNARY_COLOR } from '../theme/commons/constains';
 
 
 //interface para data de usuarios
@@ -37,7 +38,7 @@ export const StackNavigator = () => {
     screenOptions={{
       headerShown:false,
       cardStyle:{
-        //backgroundColor: 'white',
+        backgroundColor: QUATERNARY_COLOR,
       }
     }}
       >

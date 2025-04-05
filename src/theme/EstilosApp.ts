@@ -9,8 +9,14 @@ export const styles = StyleSheet.create({
 
     },
     contenedor1: {
-        //flex: 1,
+        
         backgroundColor: '#F7EEDD',
+    },
+    headerHome: {
+        flexDirection: 'row',
+        justifyContent: 'flex-end',
+        marginRight: 20,
+        marginTop: -30,
     },
     
     logoSumer: {
@@ -23,12 +29,13 @@ export const styles = StyleSheet.create({
     },
     logoSumer2: {
         
-        width: 100,
-        height: 100,
+        width: 120,
+        height: 120,
         position: 'relative',
-        marginBottom: 10,
-        top: 30,
-        left: 30,
+        marginBottom: 20,
+        top: 10,
+        alignSelf: 'center',
+        
     },
     registrar: {
         padding: 10,
@@ -39,9 +46,11 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     title: {
-        fontSize: 24,
-        marginBottom: 10,
-        textAlign: 'center',
+        color: TERTIARY_COLOR,
+        fontSize: 25,
+        fontWeight: 'bold',
+        paddingHorizontal: 30,
+        paddingVertical: 30
     },
     registros: {
         fontWeight: 'bold',
@@ -95,7 +104,7 @@ export const styles = StyleSheet.create({
     inicioS: {
         fontWeight: 'bold',
         fontSize: 18,
-        marginBottom: 10,
+        marginBottom: 50,
         textAlign: 'center',
 
     },
@@ -165,26 +174,36 @@ export const styles = StyleSheet.create({
         marginBottom: 10, // Espaciado debajo de la imagen
     },
     containerModal: {
-        flex: 2,
-        backgroundColor: 'rgba(109, 149, 124, 0.5)',
-        justifyContent: 'center',
-        alignItems: 'center',
+        flex: 1,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente
+    justifyContent: 'center',
+    alignItems: 'center',
     },
     contentModal: {
-        padding: 20,
-        backgroundColor: SECONDARY_COLOR,
-        borderRadius: 10
+        width: '90%', // Ancho del modal
+    backgroundColor: '#FFFFFF', // Fondo blanco
+    borderRadius: 15, // Bordes redondeados
+    padding: 20, // Espaciado interno
+    shadowColor: '#000', // Sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5, // Sombra para Android
     },
     headerModal: {
-        flexDirection: 'row',
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
-        padding: 10
+        flexDirection: 'row', // Elementos en fila
+    justifyContent: 'space-between', // Espaciado entre el título y el ícono
+    alignItems: 'center', // Alineación vertical
+    borderBottomWidth: 1, // Línea inferior
+    borderBottomColor: '#ccc', // Color de la línea
+    paddingBottom: 10, // Espaciado inferior
+    marginBottom: 15, // Espaciado debajo del encabezado
     },
     titleModal: {
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
+    fontSize: 18, // Tamaño de fuente
+    fontWeight: 'bold', // Negrita
+    color: '#333', // Color oscuro
+},
     imageModal: {
         width: 200,
         height: 200
@@ -282,10 +301,9 @@ export const styles = StyleSheet.create({
         alignItems: 'center', // Centrar el botón horizontalmente
         justifyContent: 'center', // Centrar el contenido del botón
     },
+    cartItemInfo: {
+        marginLeft: 10, // Espaciado entre la imagen y el texto
+        flex: 1, // Ocupa el espacio restante
+    },
     
-    
-    
-
-
-
 });

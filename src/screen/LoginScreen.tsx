@@ -9,6 +9,7 @@ import { PRIMARY_COLOR, SECONDARY_COLOR, TERTIARY_COLOR } from '../theme/commons
 import { setStatusBarHidden } from 'expo-status-bar';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { BodyComponent } from '../components/BodyComponent';
+import { TitleComponent } from '../components/TitleComponent';
 
 interface formLogin {
     email: string;
@@ -75,9 +76,10 @@ export const LoginScreen = ({ users }: Props) => {
 
         <View>
             
+            <StatusBar/>
             
-            <Text style={styles.inicioS}>Inicio de sesión</Text>
-            <BodyComponent>
+            <TitleComponent title='Inicio de sesión' />
+            <BodyComponent >
             <Image source={require('../img/logoTravel.png')} style={styles.logoSumer2} ></Image>
                 <View>
                     <Text>Email</Text>

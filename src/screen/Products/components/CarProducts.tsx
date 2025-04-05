@@ -13,6 +13,33 @@ interface Props {
 export const CarProducts = ({ product, addToCart }: Props) => {
     const [showModal, setShowModal] = useState<boolean>(false);
 
+    // Función para renderizar las estrellas dinámicamente
+    const renderStars = (rating: number) => {
+        const stars = [];
+        for (let i = 1; i <= 5; i++) {
+            stars.push(
+                <Icon
+                    key={i}
+                    name="star"
+                    size={16}
+                    color={i <= Math.floor(rating) ? '#FFD700' : '#CCCCCC'} // Estrella llena o vacía
+                />
+            );
+        }
+        // Si el ranking tiene un valor decimal, agrega una estrella parcialmente llena
+        if (rating % 1 !== 0) {
+            stars[Math.floor(rating)] = (
+                <Icon
+                    key={Math.ceil(rating)}
+                    name="star-half"
+                    size={16}
+                    color="#FFD700" // Estrella parcialmente llena
+                />
+            );
+        }
+        return stars;
+    };
+
     return (
         <View style={styles.containerCard}>
             {/* Imagen del producto */}
@@ -24,7 +51,7 @@ export const CarProducts = ({ product, addToCart }: Props) => {
                 <Text style={styles.textInfo}>Precio: ${product.precio.toFixed(2)}</Text>
                 <Text style={styles.textInfo}>Días: {product.dias} días</Text>
                 <View style={styles.row}>
-                    <Icon name="star" size={16} color="#FFD700" />
+                    {renderStars(product.ranking)}
                     <Text style={styles.textInfo}>{product.ranking.toFixed(1)}</Text>
                 </View>
                 <Text style={styles.textDescription}>{product.descripcion}</Text>

@@ -1,14 +1,15 @@
 import { CommonActions, useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react'
-import { Button, Image, ImageBackground, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
-
+import React, { useState } from 'react';
+import { Image, ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { User } from '../navigator/StackNavigator';
 import { ImputComponent } from '../components/ImputComponentes';
 import { ButonComponent } from '../components/ButonComponent';
 import { styles } from '../theme/EstilosApp';
 import { BodyComponent } from '../components/BodyComponent';
+import { TitleComponent } from '../components/TitleComponent';
+import { QUATERNARY_COLOR } from '../theme/commons/constains';
 
-//interface para el objeto formulario
+// Interface para el objeto formulario
 interface FormRegister {
   name: string;
   email: string;
@@ -16,126 +17,112 @@ interface FormRegister {
 }
 interface Props {
   users: User[];
-  addUser: (user: User) => void; // agregar nuevos usuarios
-
+  addUser: (user: User) => void; // Agregar nuevos usuarios
 }
 
 export const RegisterScreen = ({ users, addUser }: Props) => {
+  const [FormRegister, setFormRegister] = useState<FormRegister>({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const navigation = useNavigation();
 
   const handleChangeValue = (name: string, value: string): void => {
     setFormRegister({ ...FormRegister, [name]: value });
-  }
+  };
 
-  //funcion para verificar que el usuario no exista
   const verifyUser = (): User | undefined => {
-    const existUser = users.find(user => user.email === FormRegister.email);
+    const existUser = users.find((user) => user.email === FormRegister.email);
     return existUser;
+  };
 
-  }
-  //metodo para limpiar la pantalla
   const clearFiles = () => {
     setFormRegister({
       name: '',
       email: '',
       password: '',
-    })
-  }
+    });
+  };
 
-  // hook para navegar entre pantallas
-  //const navigation = useNavigation();
-
-  //funcion para registrar usuario
   const handleRegister = () => {
-    //console.log(FormRegister);
     if (FormRegister.name === '' || FormRegister.email === '' || FormRegister.password === '') {
-      //mensaje de alerta
       alert('Todos los campos son obligatorios');
       return;
     }
-    //validar si el usuario ya existe
+
     if (verifyUser()) {
-      clearFiles();//limpiar campos
-      //mensaje de alerta
+      clearFiles();
       alert('El usuario ya existe');
       return;
-
     }
-    //agregar nuevo usuario
-    //crear objeto
+
     const newUser: User = {
       id: users.length + 1,
       name: FormRegister.name,
       email: FormRegister.email,
-      password: FormRegister.password
+      password: FormRegister.password,
+    };
 
-    }
-    //console.log(FormRegister);
     addUser(newUser);
-    navigation.goBack();//regresar a la pantalla anterior
+    navigation.goBack();
+  };
 
-
-  }
-  //hook usestate para manejar el estado del formulario
-  const [FormRegister, setFormRegister] = useState<FormRegister>({
-    name: '',
-    email: '',
-    password: ''
-  });
-  const navigation = useNavigation();
   return (
     
+    <View >
+      <StatusBar backgroundColor={QUATERNARY_COLOR}/>
+      <TitleComponent title="Registro" />
       
-      <View>
-        
         <BodyComponent>
-        <Image source={require('../img/logoSummer.png')} style={styles.logoSumer2} />
-        <Text style={styles.registros}>Crea una cuenta nueva</Text>
-        <View>
-          <Text>Nombre</Text>
-          <ImputComponent
-            contrasena='Nombre'
-            handleChangeValue={handleChangeValue}
-            name='name'
-            teclado='default'
-          />
-          <Text>Apellido</Text>
-          <ImputComponent
-            contrasena='Apellido'
-            handleChangeValue={handleChangeValue}
-            name='name'
-            teclado='default'
-          />
-          <Text>Correo</Text>
-          <ImputComponent contrasena='Correo'
-            handleChangeValue={handleChangeValue}
-            name='email'
-            teclado='email-address' />
-            <Text>Contraseña</Text>
-          <ImputComponent contrasena='Contraseña'
-            handleChangeValue={handleChangeValue}
-            name='password'
-            teclado='default'
-          />
-          <Text>Confirmar contraseña</Text>
-          <ImputComponent contrasena='confirmar contraseña'
-          handleChangeValue={handleChangeValue}
-          name='confirmar'  
-          teclado='default'
-          />
-          <ButonComponent title='Registrar' handleLogin={handleRegister}/>
-        </View>
-        <TouchableOpacity onPress={() => navigation.dispatch(CommonActions.navigate({ name: 'Login' }))}>
-          <Text style={styles.ingreso}>¿Ya tienes una cuenta? Inicia sesión</Text>
-        </TouchableOpacity>
+          <Image source={require('../img/logoSummer.png')} style={styles.logoSumer2} />
+          <Text style={styles.registros}>Crea una cuenta nueva</Text>
+          <View>
+            
+            <ImputComponent
+              contrasena="Nombre"
+              handleChangeValue={handleChangeValue}
+              name="name"
+              teclado="default"
+            />
+            
+            <ImputComponent
+              contrasena="Apellido"
+              handleChangeValue={handleChangeValue}
+              name="apellido"
+              teclado="default"
+            />
+            
+            <ImputComponent
+              contrasena="Correo"
+              handleChangeValue={handleChangeValue}
+              name="email"
+              teclado="email-address"
+            />
+            
+            <ImputComponent
+              contrasena="Direccion"
+              handleChangeValue={handleChangeValue}
+              name="direccion"
+              teclado="default"
+            />
+            
+            <ImputComponent
+              contrasena="Contraseña"
+              handleChangeValue={handleChangeValue}
+              name="password"
+              teclado="default"
+            />
+            <ButonComponent title="Registrar" handleLogin={handleRegister} />
+          </View>
+          <TouchableOpacity
+            onPress={() => navigation.dispatch(CommonActions.navigate({ name: 'Login' }))}
+          >
+            <Text style={styles.ingreso}>¿Ya tienes una cuenta? Inicia sesión</Text>
+          </TouchableOpacity>
         </BodyComponent>
-        
-        
-        
-        
-      </View> 
-
-    
+      
+    </View>
   );
-};
-
-
+};    
