@@ -15,7 +15,7 @@ export interface Product {
     id: number;
     nombre: string;
     precio: number;
-    img: any;
+    img: any; // puse any porque no se puede importar la imagen
     cantidad?: number; // Cantidad opcional para el carrito
     ranking: number; // Ranking de estrellas (1 a 5)
     dias: number; // Duración del paquete turístico en días

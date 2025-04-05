@@ -124,17 +124,17 @@ export const styles = StyleSheet.create({
         borderRadius: 10,
     },
     containerCard: {
-        backgroundColor: '#FFFFFF', // Fondo blanco
-        borderRadius: 10, // Bordes redondeados
-        padding: 15, // Espaciado interno
-        marginBottom: 15, // Espaciado entre tarjetas
-        shadowColor: '#000', // Sombra para iOS
+        backgroundColor: '#FFFFFF', 
+        borderRadius: 10, 
+        padding: 15, 
+        marginBottom: 15, 
+        shadowColor: '#000', 
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.1,
         shadowRadius: 5,
-        elevation: 3, // Sombra para Android
-        flexDirection: 'column', // Elementos en columna
-        alignItems: 'center', // Centrar contenido horizontalmente
+        elevation: 3, 
+        flexDirection: 'column', 
+        alignItems: 'center', 
     },
 
     textDescription: {
@@ -149,41 +149,41 @@ export const styles = StyleSheet.create({
         color: '#333',
     },
     imgProduct: {
-        width: '100%', // Imagen ocupa todo el ancho
-        height: 150, // Altura fija
-        borderRadius: 10, // Bordes redondeados
-        marginBottom: 10, // Espaciado debajo de la imagen
+        width: '100%', 
+        height: 150,
+        borderRadius: 10, 
+        marginBottom: 10, 
     },
     containerModal: {
         flex: 1,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Fondo semitransparente
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', 
         justifyContent: 'center',
         alignItems: 'center',
     },
     contentModal: {
-        width: '90%', // Ancho del modal
-        backgroundColor: '#FFFFFF', // Fondo blanco
-        borderRadius: 15, // Bordes redondeados
-        padding: 20, // Espaciado interno
-        shadowColor: '#000', // Sombra para iOS
+        width: '90%', 
+        backgroundColor: '#FFFFFF', 
+        borderRadius: 15, 
+        padding: 20, 
+        shadowColor: '#000', 
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.2,
         shadowRadius: 5,
-        elevation: 5, // Sombra para Android
+        elevation: 5, 
     },
     headerModal: {
-        flexDirection: 'row', // Elementos en fila
-        justifyContent: 'space-between', // Espaciado entre el título y el ícono
-        alignItems: 'center', // Alineación vertical
-        borderBottomWidth: 1, // Línea inferior
-        borderBottomColor: '#ccc', // Color de la línea
-        paddingBottom: 10, // Espaciado inferior
-        marginBottom: 15, // Espaciado debajo del encabezado
+        flexDirection: 'row', 
+        justifyContent: 'space-between', 
+        alignItems: 'center', 
+        borderBottomWidth: 1, 
+        borderBottomColor: '#ccc', 
+        paddingBottom: 10, 
+        marginBottom: 15, 
     },
     titleModal: {
-        fontSize: 18, // Tamaño de fuente
-        fontWeight: 'bold', // Negrita
-        color: '#333', // Color oscuro
+        fontSize: 18, 
+        fontWeight: 'bold', 
+        color: '#333', 
     },
     imageModal: {
         width: 200,
@@ -238,13 +238,13 @@ export const styles = StyleSheet.create({
         marginLeft: 5,
     },
     addButton: {
-        marginTop: 10, // Espaciado superior
-        alignItems: 'center', // Centrar el botón horizontalmente
-        justifyContent: 'center', // Centrar el contenido del botón
+        marginTop: 10, 
+        alignItems: 'center', 
+        justifyContent: 'center', 
     },
     cartItemInfo: {
-        marginLeft: 10, // Espaciado entre la imagen y el texto
-        flex: 1, // Ocupa el espacio restante
+        marginLeft: 10, 
+        flex: 1, 
     },
 
 });

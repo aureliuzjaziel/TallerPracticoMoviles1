@@ -32,7 +32,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
             <Modal visible={isVisible} animationType="fade" transparent={true}>
                 <View style={styles.containerModal}>
                     <View style={{ ...styles.contentModal, width: width * 0.8 }}>
-                        {/* Encabezado del modal */}
+                        
                         <View style={styles.headerModal}>
                             <Text style={styles.titleModal}>
                                 {product.nombre} - ${product.precio.toFixed(2)}
@@ -42,12 +42,12 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
                             </View>
                         </View>
 
-                        {/* Imagen del producto */}
+                        
                         <View style={styles.containerImage}>
                             <Image source={product.img} style={styles.imageModal} />
                         </View>
 
-                        {/* Información adicional */}
+                       
                         <View style={styles.infoContainer}>
                             <Text style={styles.hotelName}>{product.nombre}</Text>
                             <View style={styles.row}>
@@ -58,7 +58,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
                             <Text style={styles.textInfo}>Precio por niño: ${(product.precio * 0.5).toFixed(2)}</Text>
                         </View>
 
-                        {/* Botón para agregar al carrito */}
+                        
                         <View>
                             <TouchableOpacity style={styles.buttonAddCar} onPress={handleAddCar}>
                                 <Text style={styles.buttonTextAddCar}>Comprar Ahora</Text>
@@ -68,7 +68,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
                 </View>
             </Modal>
 
-            {/* ModalCar */}
+            
             <ModalCar
                 isVisible={showModalCar}
                 cart={cart} // Pasamos el carrito completo
