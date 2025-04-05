@@ -9,7 +9,7 @@ interface Props {
     isVisible: boolean;
     cart: Product[]; // Lista de productos en el carrito
     setShowModalCar: () => void;
-    removeFromCart: (productId: number) => void; // Función para eliminar productos del carrito
+    removeFromCart: (product: number) => void; // Función para eliminar productos del carrito
 }
 
 export const ModalCar = ({ isVisible, cart, setShowModalCar, removeFromCart }: Props) => {
@@ -20,13 +20,13 @@ export const ModalCar = ({ isVisible, cart, setShowModalCar, removeFromCart }: P
         <Modal visible={isVisible} animationType="slide" transparent={true}>
             <View style={styles.containerModal}>
                 <View style={styles.contentModal}>
-                    {/* Encabezado del modal */}
+                    
                     <View style={styles.headerModal}>
                         <Text style={styles.titleModal}>Tus Favoritos</Text>
                         <Icon name="cancel" size={24} color={PRIMARY_COLOR} onPress={setShowModalCar} />
                     </View>
 
-                    {/* Lista de productos en el carrito */}
+
                     <FlatList
                         data={cart}
                         keyExtractor={(item) => item.id.toString()}
@@ -34,27 +34,30 @@ export const ModalCar = ({ isVisible, cart, setShowModalCar, removeFromCart }: P
                             <View style={styles.cartItem}>
                                 <Image source={item.img} style={styles.imageModal} />
 
-                                {/* Información del producto */}
+
                                 <View style={styles.productInfo}>
                                     <Text style={styles.titleModal}>{item.nombre}</Text>
                                     <Text style={styles.textQuantity}>Precio: ${item.precio}</Text>
                                     <Text style={styles.textQuantity}>Cantidad: {item.cantidad}</Text>
                                 </View>
 
-                                {/* Botón para eliminar el producto del carrito */}
-                                <TouchableOpacity style={styles.removeButton} onPress={() => removeFromCart(item.id)}>
-                                    <Icon name="cancel" style={styles.removeButtonIcon} />
-                                </TouchableOpacity>
+                                <Icon
+                                    name="delete"
+                                    color="red"
+                                    size={40}
+                                    onPress={() => removeFromCart(item.id)} // Llama a la función para eliminar el producto
+                                    style={styles.removeButtonIcon}
+                                />
                             </View>
                         )}
                     />
 
-                    {/* Mostrar el total */}
+
                     <View style={styles.totalContainer}>
                         <Text style={styles.textTotal}>Total: ${total.toFixed(2)}</Text>
                     </View>
 
-                    {/* Botón para cerrar el modal */}
+
                     <TouchableOpacity style={styles.buttonAddCar} onPress={setShowModalCar}>
                         <Text style={styles.buttonTextAddCar}>Contactar con un Asesor</Text>
                     </TouchableOpacity>

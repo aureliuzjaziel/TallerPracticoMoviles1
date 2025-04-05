@@ -78,7 +78,7 @@ export const Producto = () => {
         <View>
             <StatusBar />
 
-            <TitleComponent title="Productos" />
+            <TitleComponent title="Paquete de Viajes" />
 
             <View style={styles.headerHome}>
                 <View style={{ position: 'relative' }}>
@@ -90,7 +90,7 @@ export const Producto = () => {
                     />
                     {cart.length > 0 && (
                         <View style={styles.carrito}>
-                            <Text style={{ color: 'white', fontSize: 22, fontWeight: 'bold' }}>
+                            <Text style={{ color: 'white', fontSize: 13, fontWeight: 'bold' }}>
                                 {cart.reduce((total, item) => total + (item.cantidad || 1), 0)}
                             </Text>
                         </View>

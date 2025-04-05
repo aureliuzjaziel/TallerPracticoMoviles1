@@ -208,34 +208,10 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'flex-end'
     },
-    volver: {
-        padding: 10,
-        backgroundColor: '#38d692',
-        fontSize: 30,
-        fontWeight: 'bold',
-        margin: 30,
-        textAlign: 'center',
-        borderRadius: 100,
-    },
-    containerQuantity: {
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center'
-    },
-    buttonQuantity: {
-        height: 50,
-        width: 50,
-        backgroundColor: PRIMARY_COLOR,
-        borderRadius: 30,
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: 15
-    },
-    buttonTextQuantity: {
-        color: SECONDARY_COLOR,
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
+    
+    
+    
+    
     textQuantity: {
         fontSize: 16,
         fontWeight: 'bold'
@@ -311,17 +287,12 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
-    removeButton: {
-        marginLeft: 80,
-        padding: 5,
-        backgroundColor: TERTIARY_COLOR,
-        borderRadius: 50,
-        justifyContent: 'center',
-
-    },
+    
     removeButtonIcon: {
         fontSize: 20,
         color: 'red',
+        
+
     },
     totalContainer: {
         marginTop: 20,
@@ -336,7 +307,9 @@ export const styles = StyleSheet.create({
     productInfo: {
         flexDirection: 'column',
         textAlign: 'center',
-        justifyContent:'center'
+        justifyContent:'center',
+        marginLeft: 10,
+        flex: 1,
     },
 
 });

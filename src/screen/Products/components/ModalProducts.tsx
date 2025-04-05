@@ -69,7 +69,7 @@ export const ModalProducts = ({ isVisible, setShowModal, product, addToCart }: P
             </Modal>
 
             
-            <ModalCar
+            <ModalCar removeFromCart={() => {}} // Función para eliminar productos del carrito (puedes implementarla si es necesario)
                 isVisible={showModalCar}
                 cart={cart} // Pasamos el carrito completo
                 setShowModalCar={() => setShowModalCar(false)}
